@@ -1040,12 +1040,65 @@
         height: 16rem;
       }
     }
+
+
+    .nav-logo {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+    .nav-btn {
+  display: block;
+  padding: 1rem;
+  background-color: var(--charcoal);
+  border: 1px solid var(--gold);
+  border-radius: 0.75rem;
+  color: var(--platinum);
+  font-family: 'Didot', serif;
+  font-size: 1.125rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn:hover {
+  background-color: rgba(255, 215, 0, 0.05);
+  border-color: rgba(255, 215, 0, 0.3);
+  color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn:active {
+  transform: translateY(0);
+}
+
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-btn:hover::after {
+  width: 80%;
+}
   </style>
 </head>
 <body>
   <!-- Navigation -->
   <nav id="navbar">
-    <div class="nav-logo">JZ</div>
+    <div class="nav-logo" id="logoToggle">JZ</div>
     <div class="nav-links">
   <a href="#research">Research</a>
   <a href="#projects">Projects</a>
@@ -1069,6 +1122,30 @@
       </a>
     </div>
   </nav>
+
+  <!-- Navigation Modal -->
+<div id="navModal" class="modal-backdrop hidden">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>
+        <a href="https://jawadzaman.com" class="nav-logo text-2xl hover:text-gold transition-colors" style="text-decoration: none;">JZ</a>
+      </h3>
+      <div class="modal-close" id="navModalClose">&times;</div>
+    </div>
+    <div class="modal-body" style="padding: 2rem;">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a href="#research" class="nav-btn">Research</a>
+        <a href="#projects" class="nav-btn">Projects</a>
+        <a href="#triumphs" class="nav-btn">Triumphs</a>
+        <a href="#education" class="nav-btn">Education</a>
+        <a href="#experiences" class="nav-btn">Experiences</a>
+        <a href="#global" class="nav-btn">Global</a>
+        <a href="#leadership" class="nav-btn">Leadership</a>
+        <a href="#contact" class="nav-btn">Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
@@ -2081,6 +2158,56 @@ const projects = [
   impact: "Earned 4.00 GPA; recognized on Dean’s Honors List for academic excellence during international term."
 }
 ];
+
+// Navigation Modal Toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const logoToggle = document.getElementById('logoToggle');
+  const navModal = document.getElementById('navModal');
+  const navModalClose = document.getElementById('navModalClose');
+
+  if (logoToggle && navModal && navModalClose) {
+    logoToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      navModal.classList.remove('hidden');
+      console.log('Modal opened');
+    });
+
+    navModalClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      navModal.classList.add('hidden');
+      console.log('Modal closed via X');
+    });
+
+    navModal.addEventListener('click', (e) => {
+      if (e.target === navModal) {
+        navModal.classList.add('hidden');
+        console.log('Modal closed via overlay');
+      }
+    });
+
+    // Close modal when clicking a link
+    document.querySelectorAll('.nav-btn').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        navModal.classList.add('hidden');
+        console.log('Modal closed via link, navigating...');
+        
+        // Navigate after a tiny delay to show the close animation
+        setTimeout(() => {
+          const targetId = link.getAttribute('href');
+          if (targetId.startsWith('#')) {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }, 100);
+      });
+    });
+  }
+});
 
 // === MODAL HANDLING ===
 document.querySelectorAll(".card[data-id]").forEach(card => {
