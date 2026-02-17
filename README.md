@@ -1,4 +1,4 @@
 # Portfolio
 Profile update in progress
 
-Missing sections: Honors Inductions & Professional Certifications 
+Missing sections: Coferences, Honors Inductions & Professional Certifications 
