@@ -1093,6 +1093,258 @@
 .nav-btn:hover::after {
   width: 80%;
 }
+
+/* === NEW SECTIONS: Shared Styles === */
+.section-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+@media (min-width: 768px) {
+  .section-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .section-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Certification Card Styles */
+.cert-card {
+  background-color: var(--charcoal);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--gold), rgba(255, 215, 0, 0.5));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.cert-card:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+.cert-card:hover::before {
+  transform: scaleX(1);
+}
+.cert-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.cert-card-title {
+  font-size: 1.25rem;
+  font-family: 'Didot', serif;
+  color: var(--ivory);
+  line-height: 1.3;
+}
+.cert-card-year {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--gold);
+  background-color: rgba(255, 215, 0, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  white-space: nowrap;
+}
+.cert-card-org {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(255, 215, 0, 0.8);
+}
+.cert-card-desc {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(255, 215, 0, 0.7);
+  line-height: 1.5;
+}
+.cert-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--gold);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+.cert-card-link:hover {
+  color: var(--ivory);
+}
+.cert-card-link svg {
+  transition: transform 0.3s ease;
+}
+.cert-card-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* Honors Card Styles (similar to Leadership) */
+.honors-card {
+  background-color: var(--obsidian);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+.honors-card:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: translateY(-3px);
+}
+.honors-card-title {
+  font-size: 1.25rem;
+  font-family: 'Didot', serif;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.honors-card-year {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255, 215, 0, 0.6);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.honors-card-desc {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(255, 215, 0, 0.8);
+  line-height: 1.5;
+}
+
+/* Conference Card Styles */
+.conference-card {
+  background-color: var(--charcoal);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+.conference-card:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+}
+.conference-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.conference-title {
+  font-size: 1.125rem;
+  font-family: 'Didot', serif;
+  color: var(--ivory);
+}
+.conference-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255, 215, 0, 0.6);
+  margin-bottom: 0.75rem;
+}
+.conference-location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.conference-presentations {
+  margin-top: 0.5rem;
+}
+.conference-presentations h5 {
+  font-size: 0.875rem;
+  font-family: 'Didot', serif;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.conference-presentations ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.conference-presentations li {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(255, 215, 0, 0.8);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.4;
+}
+.conference-presentations li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* Resume Section Styles */
+.resume-section {
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+.resume-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, var(--gold), rgba(255, 215, 0, 0.8));
+  color: var(--obsidian);
+  border-radius: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.resume-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+.resume-button:active {
+  transform: scale(0.98);
+}
+.resume-button svg {
+  transition: transform 0.3s ease;
+}
+.resume-button:hover svg {
+  transform: translateX(3px);
+}
+.resume-subtext {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(255, 215, 0, 0.7);
+  margin-top: 1rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
   </style>
 </head>
 <body>
@@ -1105,8 +1357,12 @@
   <a href="#triumphs">Triumphs</a>
   <a href="#education">Education</a>
   <a href="#experiences">Experiences</a>
-  <a href="#global">Global</a>
   <a href="#leadership">Leadership</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#honors">Honors</a>
+  <a href="#global">Global</a>
+  <a href="#conferences">Conferences</a>
+  <a href="#resume">Resume</a>
   <a href="#contact">Contact</a>
 </div>
     <div class="social-icons">
@@ -1139,8 +1395,12 @@
         <a href="#triumphs" class="nav-btn">Triumphs</a>
         <a href="#education" class="nav-btn">Education</a>
         <a href="#experiences" class="nav-btn">Experiences</a>
-        <a href="#global" class="nav-btn">Global</a>
         <a href="#leadership" class="nav-btn">Leadership</a>
+        <a href="#certifications" class="nav-btn">Certifications</a>
+        <a href="#honors" class="nav-btn">Honors</a>
+        <a href="#global" class="nav-btn">Global</a>
+        <a href="#conferences" class="nav-btn">Conferences</a>
+        <a href="#resume" class="nav-btn">Resume</a>
         <a href="#contact" class="nav-btn">Contact</a>
       </div>
     </div>
@@ -1720,6 +1980,27 @@
     <p>Where technical mastery meets human impact</p>
   </div>
   <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- 0. API Ambassador -->
+    <div class="card cursor-pointer" data-id="api-ambassador">
+      <img src="https://placehold.co/600x400/1a1a22/f8f5f0?text=API+Ambassador" alt="API Ambassador Program" class="card-image">
+      <div class="card-content">
+        <h3>API Ambassador</h3>
+        <p>Academic Programs International | Brooklyn, NY</p>
+        <div class="tech-tags">
+          <span>Content Creation</span>
+          <span>Peer Mentorship</span>
+          <span>Study Abroad Advocacy</span>
+          <span>Public Speaking</span>
+        </div>
+        <div class="card-footer">
+          <span>2026–Present</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.25 12L3.75 12 9.75 6 8.25 4.5 0 12l8.25 7.5 1.5 -1.5 -6 -6H20.25v-3z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
     <!-- 1. Scientist-in-Residence -->
     <div class="card cursor-pointer" data-id="10">
       <img src="https://placehold.co/600x400/1a1a22/f8f5f0?text=STEM+Mentorship" alt="Scientist-in-Residence" class="card-image">
@@ -1802,57 +2083,6 @@
   </div>
 </section>
 
-  <!-- Global Impact -->
-<section id="global" class="bg-midnight py-20">
-  <div class="section-header">
-    <div class="section-divider"></div>
-    <h2>Global Impact</h2>
-    <p>Presenting research across continents</p>
-  </div>
-  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
-    <div class="text-center">
-      <div class="text-5xl mb-4">🇺🇸</div>
-      <h3 class="font-didot text-xl">New York, USA</h3>
-      <p class="text-sm mt-2">Developed award-winning AI projects at Columbia and Stony Brook; interned at the New York Academy of Sciences.</p>
-    </div>
-    <div class="text-center">
-      <div class="text-5xl mb-4">🇯🇵</div>
-      <h3 class="font-didot text-xl">Tokyo, Japan</h3>
-      <p class="text-sm mt-2">Studied abroad at Lakeland University Japan and presented bicultural ethnographic research at the LUJ World Expo.</p>
-    </div>
-    <div class="text-center">
-      <div class="text-5xl mb-4">🇧🇩</div>
-      <h3 class="font-didot text-xl">Dhaka, Bangladesh</h3>
-      <p class="text-sm mt-2">Founded tech mentorship programs and competed in national robotics and research competitions at BUET.</p>
-    </div>
-    <div class="text-center">
-      <div class="text-5xl mb-4">🇺🇸</div>
-      <h3 class="font-didot text-xl">Pennsylvania, USA</h3>
-      <p class="text-sm mt-2">Awarded "Best Paper of the Year" by NRHC for Neural Machine Translation research; served as regional panel moderator.</p>
-    </div>
-    <div class="text-center">
-      <div class="text-5xl mb-4">🇺🇸</div>
-      <h3 class="font-didot text-xl">Maryland, USA</h3>
-      <p class="text-sm mt-2">Presented ecological ML research at ESA Annual Meeting on forest biomass prediction using NEON data.</p>
-    </div>
-    <div class="text-center">
-      <div class="text-5xl mb-4">🇺🇸</div>
-      <h3 class="font-didot text-xl">Rhode Island, USA</h3>
-      <p class="text-sm mt-2">Delivered honors research presentation, engaging with Northeast regional honors students.</p>
-    </div>
-    <div class="text-center">
-      <div class="text-5xl mb-4">🇺🇸</div>
-      <h3 class="font-didot text-xl">Delaware, USA</h3>
-      <p class="text-sm mt-2">Led sales operations at GPM Sales, implementing automated B2B tracking and global inventory systems.</p>
-    </div>
-    <div class="text-center">
-      <div class="text-5xl mb-4">🇧🇩</div>
-      <h3 class="font-didot text-xl">Gazipur, Bangladesh</h3>
-      <p class="text-sm mt-2">Won third prize at IUT National Research Competition for ML-based mobile device solvency classification.</p>
-    </div>
-  </div>
-</section>
-
   <!-- Leadership -->
 <section id="leadership" class="bg-charcoal py-20">
   <div class="section-header">
@@ -1907,6 +2137,289 @@
   <h3 class="font-didot text-2xl text-gold mb-4">Olympiad Secretary | Adamjee Cantonment College Robotics Club</h3>
   <p>Managed administrative logistics and coordinated with technical boards to facilitate national-level STEM competitions, quizzes, and mentoring sessions for hundreds of participants.</p>
 </div>
+  </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="bg-midnight py-20">
+  <div class="section-header">
+    <div class="section-divider"></div>
+    <h2>Professional Certifications</h2>
+    <p>Validated expertise through certifications</p>
+  </div>
+  <div class="section-cards-grid">
+    <!-- Certification 1: Management -->
+    <a href="https://www.sjny.edu/brooklyn/academics/professional/certificates/management-professional/curriculum" target="_blank" class="cert-card">
+      <div class="cert-card-header">
+        <h3 class="cert-card-title">Management Certification</h3>
+        <span class="cert-card-year">2026</span>
+      </div>
+      <p class="cert-card-org">St. Joseph's University New York</p>
+      <p class="cert-card-desc">Comprehensive program covering strategic planning, organizational leadership, financial decision-making, and operational excellence for emerging business leaders.</p>
+      <span class="cert-card-link">View Curriculum
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.25 12L3.75 12 9.75 6 8.25 4.5 0 12l8.25 7.5 1.5 -1.5 -6 -6H20.25v-3z"/></svg>
+      </span>
+    </a>
+
+    <!-- Certification 2: Harvard CS50 -->
+    <a href="https://certificates.cs50.io/af27fecc-d060-450c-b1e4-34477c18bd9d.pdf?size=letter" target="_blank" class="cert-card">
+      <div class="cert-card-header">
+        <h3 class="cert-card-title">Harvard CS50: Introduction to Computer Science</h3>
+        <span class="cert-card-year">2026</span>
+      </div>
+      <p class="cert-card-org">Harvard University</p>
+      <p class="cert-card-desc">Rigorous introduction to computational thinking, algorithms, data structures, encryption, and web development using C, Python, SQL, JavaScript, and HTML/CSS.</p>
+      <span class="cert-card-link">View Certificate
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.25 12L3.75 12 9.75 6 8.25 4.5 0 12l8.25 7.5 1.5 -1.5 -6 -6H20.25v-3z"/></svg>
+      </span>
+    </a>
+
+    <!-- Certification 3: Microsoft Word -->
+    <a href="https://certificates.simnetonline.com/69240d0f-8b4a-4b67-852c-cbf8b804031f#acc.YVupU3dD" target="_blank" class="cert-card">
+      <div class="cert-card-header">
+        <h3 class="cert-card-title">Essential Skills: Microsoft Word</h3>
+        <span class="cert-card-year">2026</span>
+      </div>
+      <p class="cert-card-org">McGraw Hill / Microsoft</p>
+      <p class="cert-card-desc">Credential ID: 173279604. Mastery of document formatting, styles, tables, mail merge, collaboration tools, and professional document design in Microsoft Word.</p>
+      <span class="cert-card-link">Verify Credential
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.25 12L3.75 12 9.75 6 8.25 4.5 0 12l8.25 7.5 1.5 -1.5 -6 -6H20.25v-3z"/></svg>
+      </span>
+    </a>
+
+    <!-- Certification 4: Xylem Innovation Challenge -->
+    <a href="https://www.virtualbadge.io/certificate-validator?credential=36108fd7-e757-43af-938c-b2faaf04eeb7" target="_blank" class="cert-card">
+      <div class="cert-card-header">
+        <h3 class="cert-card-title">Global Student Innovation Challenge Winner</h3>
+        <span class="cert-card-year">2025</span>
+      </div>
+      <p class="cert-card-org">Xylem / BeMyApp</p>
+      <p class="cert-card-desc">Credential ID: 36108fd7-e757-43af-938c-b2faaf04eeb7. Recognized for developing RESQMAP, an AI-powered flood rescue platform, among 800+ global teams.</p>
+      <span class="cert-card-link">Verify Badge
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.25 12L3.75 12 9.75 6 8.25 4.5 0 12l8.25 7.5 1.5 -1.5 -6 -6H20.25v-3z"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- Honors Section -->
+<section id="honors" class="bg-charcoal py-20">
+  <div class="section-header">
+    <div class="section-divider"></div>
+    <h2>Honors Inductions</h2>
+    <p>Recognized for scholarly achievements</p>
+  </div>
+  <div class="max-w-5xl mx-auto px-6 grid sm:grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Honor 1: SJNY Brooklyn Honors -->
+    <div class="honors-card">
+      <h3 class="honors-card-title">SJNY Brooklyn Honors Program</h3>
+      <span class="honors-card-year">Inducted 2024</span>
+      <p class="honors-card-desc">Completed 4 honors seminars, 6 honors concentrations, and 6 workshops covering James Baldwin, mental health history, Japanese culture, and research methodology. Preparing honors thesis and presenting at annual symposium.</p>
+    </div>
+
+    <!-- Honor 2: NRHC -->
+    <div class="honors-card">
+      <h3 class="honors-card-title">Northeast Regional Honors Council</h3>
+      <span class="honors-card-year">Inducted 2025</span>
+      <p class="honors-card-desc">Active participant presenting academic panels and poster sessions. Served as panel moderator for research sessions and panelist for publishing workshops at annual conferences in Harrisburg, PA and New Haven, CT.</p>
+    </div>
+
+    <!-- Honor 3: Sigma Iota Chi -->
+    <div class="honors-card">
+      <h3 class="honors-card-title">Sigma Iota Chi Honors Society</h3>
+      <span class="honors-card-year">Inducted 2025</span>
+      <p class="honors-card-desc">National honors society recognizing scholarly achievement and leadership. Engaged in service initiatives, interdisciplinary networking, and professional development events supporting academic excellence across liberal arts and sciences.</p>
+    </div>
+
+    <!-- Honor 4: Delta Epsilon Sigma -->
+    <div class="honors-card">
+      <h3 class="honors-card-title">Delta Epsilon Sigma</h3>
+      <span class="honors-card-year">Inducted 2026</span>
+      <p class="honors-card-desc">National scholastic honor society for Jesuit institutions. Committed to service, community engagement, and volunteer leadership while upholding values of intellectual rigor, ethical reflection, and dedication to the common good.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Global Impact -->
+<section id="global" class="bg-midnight py-20">
+  <div class="section-header">
+    <div class="section-divider"></div>
+    <h2>Global Impact</h2>
+    <p>Presenting research across continents</p>
+  </div>
+  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
+    <div class="text-center">
+      <div class="text-5xl mb-4">🇺🇸</div>
+      <h3 class="font-didot text-xl">New York, USA</h3>
+      <p class="text-sm mt-2">Developed award-winning AI projects at Columbia and Stony Brook; interned at the New York Academy of Sciences.</p>
+    </div>
+    <div class="text-center">
+      <div class="text-5xl mb-4">🇯🇵</div>
+      <h3 class="font-didot text-xl">Tokyo, Japan</h3>
+      <p class="text-sm mt-2">Studied abroad at Lakeland University Japan and presented bicultural ethnographic research at the LUJ World Expo.</p>
+    </div>
+    <div class="text-center">
+      <div class="text-5xl mb-4">🇧🇩</div>
+      <h3 class="font-didot text-xl">Dhaka, Bangladesh</h3>
+      <p class="text-sm mt-2">Founded tech mentorship programs and competed in national robotics and research competitions at BUET.</p>
+    </div>
+    <div class="text-center">
+      <div class="text-5xl mb-4">🇺🇸</div>
+      <h3 class="font-didot text-xl">Pennsylvania, USA</h3>
+      <p class="text-sm mt-2">Awarded "Best Paper of the Year" by NRHC for Neural Machine Translation research; served as regional panel moderator.</p>
+    </div>
+    <div class="text-center">
+      <div class="text-5xl mb-4">🇺🇸</div>
+      <h3 class="font-didot text-xl">Maryland, USA</h3>
+      <p class="text-sm mt-2">Presented ecological ML research at ESA Annual Meeting on forest biomass prediction using NEON data.</p>
+    </div>
+    <div class="text-center">
+      <div class="text-5xl mb-4">🇺🇸</div>
+      <h3 class="font-didot text-xl">Rhode Island, USA</h3>
+      <p class="text-sm mt-2">Delivered honors research presentation, engaging with Northeast regional honors students.</p>
+    </div>
+    <div class="text-center">
+      <div class="text-5xl mb-4">🇺🇸</div>
+      <h3 class="font-didot text-xl">Delaware, USA</h3>
+      <p class="text-sm mt-2">Led sales operations at GPM Sales, implementing automated B2B tracking and global inventory systems.</p>
+    </div>
+    <div class="text-center">
+      <div class="text-5xl mb-4">🇧🇩</div>
+      <h3 class="font-didot text-xl">Gazipur, Bangladesh</h3>
+      <p class="text-sm mt-2">Won third prize at IUT National Research Competition for ML-based mobile device solvency.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Conferences Section -->
+<section id="conferences" class="bg-midnight py-20">
+  <div class="section-header">
+    <div class="section-divider"></div>
+    <h2>Research Conferences</h2>
+    <p>Advancing knowledge through presentations</p>
+  </div>
+  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Conference 1: NRHC 2025 & 2026 -->
+    <div class="conference-card">
+      <div class="conference-header">
+        <h3 class="conference-title">Northeast Regional Honors Council Annual Conference</h3>
+      </div>
+      <div class="conference-meta">
+        <span>2025 & 2026</span>
+        <span class="conference-location">Harrisburg, PA • New Haven, CT</span>
+      </div>
+      <div class="conference-presentations">
+        <h5>Presented Research:</h5>
+        <ul>
+          <li>Benchmarking Neural Machine Translation Using Open-Source Transformer Models and a Comparative Study with a Focus on Medical and Legal Domains</li>
+          <li>Emotions in the Eye of the Machine: Accuracy, Bias, and Ethical Implications of AI-Based Facial Analysis</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Conference 2: ESA Annual Meeting -->
+    <div class="conference-card">
+      <div class="conference-header">
+        <h3 class="conference-title">Ecological Society of America Annual Meeting</h3>
+      </div>
+      <div class="conference-meta">
+        <span>2025</span>
+        <span class="conference-location">Baltimore, MD</span>
+      </div>
+      <div class="conference-presentations">
+        <h5>Presented Research:</h5>
+        <ul>
+          <li>Comparing Machine Learning Models for Environmental and Ecological Monitoring Using Remote Sensing Data in the Midwest and Northeast</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Conference 3: SJNY Research Symposium -->
+    <div class="conference-card">
+      <div class="conference-header">
+        <h3 class="conference-title">St. Joseph's University NY Undergraduate Research Symposium</h3>
+      </div>
+      <div class="conference-meta">
+        <span>2025</span>
+        <span class="conference-location">Brooklyn, NY</span>
+      </div>
+      <div class="conference-presentations">
+        <h5>Presented Research:</h5>
+        <ul>
+          <li>Benchmarking Neural Machine Translation Using Open-Source Transformer Models and a Comparative Study with a Focus on Medical and Legal Domains</li>
+          <li>Comparing Machine Learning Models for Environmental and Ecological Monitoring Using Remote Sensing Data in the Midwest and Northeast</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Conference 4: NYC Symposium at NYU Tandon -->
+    <div class="conference-card">
+      <div class="conference-header">
+        <h3 class="conference-title">NYC Symposium at NYU Tandon School of Engineering</h3>
+      </div>
+      <div class="conference-meta">
+        <span>2026</span>
+        <span class="conference-location">Brooklyn, NY</span>
+      </div>
+      <div class="conference-presentations">
+        <h5>Presented Research:</h5>
+        <ul>
+          <li>Comparing Machine Learning Models for Environmental and Ecological Monitoring Using Remote Sensing Data in the Midwest and Northeast</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Conference 5: LUJ World Expo -->
+    <div class="conference-card">
+      <div class="conference-header">
+        <h3 class="conference-title">Lakeland University Japan World Expo</h3>
+      </div>
+      <div class="conference-meta">
+        <span>2025</span>
+        <span class="conference-location">Tokyo, Japan</span>
+      </div>
+      <div class="conference-presentations">
+        <h5>Presented Research:</h5>
+        <ul>
+          <li>Navigating German and Filipino Cultural Worlds: An Ethnographic Study of Bicultural Identity Formation</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Conference 6: IUT Applied ML Symposium -->
+    <div class="conference-card">
+      <div class="conference-header">
+        <h3 class="conference-title">Islamic University of Technology Applied ML Research Symposium</h3>
+      </div>
+      <div class="conference-meta">
+        <span>2024</span>
+        <span class="conference-location">Gazipur, Bangladesh</span>
+      </div>
+      <div class="conference-presentations">
+        <h5>Presented Research:</h5>
+        <ul>
+          <li>Predictive Modeling for Financial Solvency: Machine Learning Approaches to Bankruptcy Classification Using Hardware Specifications</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resume Section -->
+<section id="resume" class="bg-obsidian py-20">
+  <div class="section-header">
+    <div class="section-divider"></div>
+    <h2>Download Resume</h2>
+    <p>Complete professional journey documented</p>
+  </div>
+  <div class="resume-section">
+    <a href="./Resume.pdf" download="Jawad_Zaman_Resume.pdf" class="resume-button">
+      <span>Download Resume</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/>
+      </svg>
+    </a>
+    <p class="resume-subtext">PDF format • Updated February 2026</p>
   </div>
 </section>
 
@@ -2114,6 +2627,7 @@ const projects = [
     image: "https://placehold.co/400x300/0a0a0a/ffd700?text=Medical+Legal+AI+Translation",
     tech: ["TensorFlow", "PyTorch", "Transformer Models", "BLEU/METEOR"],
     impact: "Framework adopted by 3 medical institutions for cross-lingual patient documentation; awarded 'Paper of the Year' at NRHC 2025.",
+    philosophy: "Language access is a healthcare and justice issue, not just a technical benchmark. This work focuses on reducing harmful translation gaps so critical decisions are informed by clarity, context, and dignity.",
     link: "https://www.illuminatenrhc.com/post/benchmarking-neural-machine-translation-using-open-source-transformer-models-and-a-comparative-stud",
     linkText: "Read Full Paper"
   },
@@ -2124,7 +2638,8 @@ const projects = [
     description: "Investigating bias, accuracy, and ethical implications in facial emotion recognition systems across cultural contexts. Developed mitigation strategies for algorithmic bias in non-Western populations.",
     image: "https://placehold.co/400x300/0a0a0a/ffd700?text=Emotion+Detection+AI",
     tech: ["Python", "OpenCV", "Bias Mitigation Algorithms", "Cross-Cultural Datasets"],
-    impact: "Framework adopted by 2 major tech companies for inclusive UX design."
+    impact: "Framework adopted by 2 major tech companies for inclusive UX design.",
+    philosophy: "Emotion AI must be held to cultural fairness, not convenience. The goal is to challenge one-size-fits-all assumptions and design systems that respect human variability across communities."
   },
   {
     id: 3,
@@ -2134,6 +2649,7 @@ const projects = [
     image: "https://placehold.co/400x300/0a0a0a/ffd700?text=Blockchain+Healthcare+System",
     tech: ["Ethereum", "IPFS", "AES-256", "Smart Contracts", "Web3 Authentication"],
     impact: "Prototype demonstrates GDPR/HIPAA-compliant, tamper-proof health records with dynamic consent management for underserved regions.",
+    philosophy: "Patients should own their medical narrative. Security architecture matters most when it protects autonomy, privacy, and trust in moments when people are most vulnerable.",
     link: "https://docs.google.com/document/d/1OObhXSqPFPWrnGXbiLofKrdHIq3ipMGCOL4VoX8LaYg/edit?usp=sharing",
     linkText: "View Project Paper"
   },
@@ -2144,7 +2660,8 @@ const projects = [
     description: "Classifying mobile device price ranges and financial solvency using hardware specs and ML models. Performed extensive data preprocessing, including class balancing and feature scaling.",
     image: "https://placehold.co/400x300/0a0a0a/ffd700?text=Financial+Solvency+Model",
     tech: ["Python", "Scikit-Learn", "MLPClassifier", "SVM", "Naive Bayes", "Seaborn"],
-    impact: "Model deployed in academic capstone with 92% classification accuracy on imbalanced datasets."
+    impact: "Model deployed in academic capstone with 92% classification accuracy on imbalanced datasets.",
+    philosophy: "Predictive models should support better decisions, not replace judgment. This project emphasizes transparent methods and robust validation so stakeholders can act with confidence."
   },
   {
     id: 5,
@@ -2154,6 +2671,7 @@ const projects = [
     image: "https://placehold.co/400x300/0a0a0a/ffd700?text=German+Cultural+Study",
     tech: ["Qualitative Research", "Ethnographic Interviewing", "Public Speaking", "Cross-Cultural Pedagogy"],
     impact: "Workshop attended by 150+ students; materials adopted by LUJ intercultural curriculum.",
+    philosophy: "Cross-cultural learning begins with listening. By centering lived experience and nuance, this work turns cultural difference into empathy, collaboration, and shared understanding.",
     link: "https://docs.google.com/document/d/1kq_YVg2PJZwiJKmCulaaIJJH9S3pfk6h/edit?usp=sharing&ouid=103035747017757486281&rtpof=true&sd=true",
     linkText: "View Presentation Paper"
   },
@@ -2164,7 +2682,8 @@ const projects = [
     description: "Evaluated LightGBM, Random Forest, and Gradient Boosting models on NEON spectrometer data to predict forest biomass. Demonstrated Decision Trees' superiority in vegetation health estimation.",
     image: "https://placehold.co/400x300/0a0a0a/ffd700?text=Forest+Biomass+ML",
     tech: ["LightGBM", "Random Forest", "GIS", "R² Evaluation", "NEON Remote Sensing Data"],
-    impact: "Findings contributed to ESA’s open-source ecological forecasting toolkit."
+    impact: "Findings contributed to ESA’s open-source ecological forecasting toolkit.",
+    philosophy: "Environmental intelligence is strongest when models remain interpretable and actionable. The objective is not just prediction, but practical insight that supports long-term ecological stewardship."
   },
   {
   id: 10,
@@ -2173,7 +2692,18 @@ const projects = [
   description: "Lead specialized STEM instructional sessions for high school seniors, focusing on practical applications of Arduino and robotics. Design hands-on, project-based lessons that integrate principles of accessibility and sustainability into real-world engineering solutions.",
   image: "https://placehold.co/400x300/0a0a0a/ffd700?text=STEM+Mentorship",
   tech: ["Arduino", "Robotics", "Curriculum Design", "Accessibility"],
-  impact: "Empowered 120+ students to build hardware prototypes; materials adopted by NYAS national outreach program."
+  impact: "Empowered 120+ students to build hardware prototypes; materials adopted by NYAS national outreach program.",
+  philosophy: "STEM education is most powerful when students build, test, and iterate with purpose. Mentorship here focuses on confidence, creativity, and engineering solutions that serve real community needs."
+},
+{
+  id: "api-ambassador",
+  title: "API Ambassador",
+  subtitle: "Academic Programs International | Brooklyn, NY",
+  description: "Selected as a student ambassador to share authentic study abroad experiences and mentor prospective students. Create compelling content across blogs, social media, and campus events to demystify international education. Participate in the Ask an Alum pen-pal program, providing personalized guidance to students navigating application processes, cultural preparation, and pre-departure logistics. Represent API at study abroad fairs, classroom presentations, and alumni panels to inspire the next generation of global learners.",
+  image: "https://placehold.co/400x300/0a0a0a/ffd700?text=API+Ambassador+Program",
+  tech: ["Content Strategy", "Social Media Marketing", "Public Speaking", "Mentorship", "Event Planning", "Cross-Cultural Communication"],
+  impact: "Empowering 50+ prospective students through personalized mentorship; increasing study abroad awareness across campus via targeted content and interactive events.",
+  philosophy: "Sharing authentic stories isn't just about promotion—it's about building bridges. Every review, post, and conversation helps students see themselves abroad, transforming anxiety into excitement and uncertainty into preparation."
 },
 {
   id: 11,
@@ -2182,7 +2712,8 @@ const projects = [
   description: "Design and deploy responsive web applications and mobile platforms using modern full-stack frameworks. Manage end-to-end IT infrastructure, including hosting, performance optimization, and security hardening.",
   image: "https://placehold.co/400x300/0a0a0a/ffd700?text=Full-Stack+Dev",
   tech: ["React", "Node.js", "AWS", "Agile", "Cybersecurity"],
-  impact: "Delivered 8 client projects with 100% on-time completion; reduced server costs by 40% through optimization."
+  impact: "Delivered 8 client projects with 100% on-time completion; reduced server costs by 40% through optimization.",
+  philosophy: "Great software balances speed, reliability, and maintainability. Every release is an opportunity to improve user experience while strengthening infrastructure and long-term product stability."
 },
 {
   id: 12,
@@ -2191,7 +2722,8 @@ const projects = [
   description: "Orchestrated national-level STEM Olympiads, managing logistics, judging panels, and training protocols for hundreds of participants. Developed curriculum-aligned quizzes and mentoring sessions to improve competitive performance.",
   image: "https://placehold.co/400x300/0a0a0a/ffd700?text=Robotics+Director",
   tech: ["Event Management", "STEM Curriculum", "Robotics", "Partnerships"],
-  impact: "Increased student participation by 300%; secured partnerships with 5 universities for talent pipeline."
+  impact: "Increased student participation by 300%; secured partnerships with 5 universities for talent pipeline.",
+  philosophy: "Leadership in STEM is about building systems where talent can grow. This role prioritized structure, mentorship, and access so more students could compete with confidence."
 },
 {
   id: 13,
@@ -2200,7 +2732,8 @@ const projects = [
   description: "Streamlined B2B sales workflows by implementing automated tracking systems for parts inventory and order fulfillment. Analyzed sales data to identify market trends in global parts management.",
   image: "https://placehold.co/400x300/0a0a0a/ffd700?text=B2B+Sales+Tech",
   tech: ["Data Analysis", "Inventory Automation", "CRM", "Supply Chain"],
-  impact: "Reduced lead times by 25%; improved client retention by 35% through contract optimization."
+  impact: "Reduced lead times by 25%; improved client retention by 35% through contract optimization.",
+  philosophy: "Operational excellence comes from clarity and consistency. Small process improvements, when measured and repeated, create meaningful gains for both clients and teams."
 },
 {
   id: 20,
@@ -2209,7 +2742,8 @@ const projects = [
   description: "Bachelor of Science (Honors) with perfect 4.00 GPA. Recipient of the Esse Non Videri Scholarship, consistent Dean’s List honoree, and member of both the Sigma Iota Chi Honors Society and the SJNY Brooklyn Honors Program.",
   image: "https://placehold.co/400x300/0a0a0a/ffd700?text=SJNY",
   tech: ["Computer Science", "Mathematics", "Business Administration"],
-  impact: "Maintaining 4.00 GPA while leading 4 campus organizations and publishing award-winning research."
+  impact: "Maintaining 4.00 GPA while leading 4 campus organizations and publishing award-winning research.",
+  philosophy: "Interdisciplinary training sharpens both analysis and execution. Combining computing, mathematics, and business builds a stronger foundation for ethical, scalable innovation."
 },
 {
   id: 21,
@@ -2218,7 +2752,8 @@ const projects = [
   description: "Immersive semester in Tokyo focusing on intercultural communication, Japanese business protocols, and global ethics in technology.",
   image: "https://placehold.co/400x300/0a0a0a/ffd700?text=LUJ",
   tech: ["Study Abroad", "CLEP"],
-  impact: "Earned 4.00 GPA; recognized on Dean’s Honors List for academic excellence during international term."
+  impact: "Earned 4.00 GPA; recognized on Dean’s Honors List for academic excellence during international term.",
+  philosophy: "Global learning expands how problems are framed and solved. Immersion in new cultural contexts strengthens adaptability, communication, and perspective-driven leadership."
 }
 ];
 
@@ -2275,7 +2810,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // === MODAL HANDLING ===
 document.querySelectorAll(".card[data-id]").forEach(card => {
   card.addEventListener("click", () => {
-    const id = parseInt(card.getAttribute("data-id"));
+    const rawId = card.getAttribute("data-id");
+    const parsedId = Number(rawId);
+    const id = Number.isNaN(parsedId) ? rawId : parsedId;
     const proj = projects.find(p => p.id === id);
     if (!proj) return;
 
@@ -2307,7 +2844,8 @@ proj.tech.forEach(tech => {
 });
 
     // Philosophy
-    document.getElementById("modalPhilosophy").textContent = 
+    document.getElementById("modalPhilosophy").textContent =
+      proj.philosophy ||
       "True innovation emerges when technical excellence serves human dignity. This project wasn't about winning awards—it was about creating tools that protect the vulnerable, amplify the unheard, and ensure technology remains a force for collective elevation rather than fragmentation.";
 
     // Show/hide philosophy vs courses
@@ -2432,6 +2970,56 @@ document.querySelectorAll(".card[data-id]").forEach(card => {
       default: return;
     }
     window.open(url, "_blank");
+  });
+});
+
+// === RESUME DOWNLOAD: Enhanced click handler with analytics (optional) ===
+document.querySelector('.resume-button')?.addEventListener('click', (e) => {
+  console.log('Resume download initiated');
+
+  const link = e.currentTarget;
+  if (!link.hasAttribute('download')) {
+    e.preventDefault();
+    const href = link.getAttribute('href');
+    fetch(href)
+      .then(response => response.blob())
+      .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Jawad_Zaman_Resume.pdf';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      });
+  }
+});
+
+// === SMOOTH SCROLL FOR NEW NAV LINKS (if not already handled) ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      const navModal = document.getElementById('navModal');
+      if (navModal && !navModal.classList.contains('hidden')) {
+        navModal.classList.add('hidden');
+      }
+
+      const navbar = document.getElementById('navbar');
+      const navbarHeight = navbar ? navbar.offsetHeight : 80;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   });
 });
   </script>
